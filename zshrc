@@ -12,15 +12,19 @@ ZSH_THEME="robbyrussell"
 
 DISABLE_AUTO_UPDATE="true"
 
-plugins=(git osx brew ruby rails3 rails4 bundler coffee)
+plugins=(git osx brew ruby rails3 rails4 bundler gem vagrant rbenv coffee)
 
-export PATH="/usr/local/bin:$HOME/bin:$PATH:/usr/local/share/npm/bin"
+export PATH="$PATH:$HOME/bin"
+# The rest is set up in /etc/paths
+
 export EDITOR="subl -w"
 
 source $ZSH/oh-my-zsh.sh
 
+# rbenv now initialized in oh-my-zsh plugin
 # https://coderwall.com/p/j6cjnq
-eval "$(rbenv init - --no-rehash)"
+#eval "$(rbenv init - --no-rehash)"
 
 # Aliases - where should these go?
 alias web='python -m SimpleHTTPServer'
+alias cleantab='crontab -l|grep -v "^#"|grep -v "^$"'
