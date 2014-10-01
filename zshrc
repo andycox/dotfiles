@@ -14,8 +14,8 @@ DISABLE_AUTO_UPDATE="true"
 
 plugins=(git osx brew ruby rails3 rails4 bundler gem vagrant coffee)
 
-export PATH="$PATH:$HOME/bin"
-# The rest is set up in /etc/paths
+export PATH="/usr/local/bin:$HOME/bin:$PATH"
+# Homebrew versions should supersede defaults set up in /etc/paths
 
 export EDITOR="subl -w"
 
