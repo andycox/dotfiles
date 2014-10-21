@@ -12,20 +12,24 @@ ZSH_THEME="robbyrussell"
 
 DISABLE_AUTO_UPDATE="true"
 
-plugins=(git osx brew ruby rails3 rails4 bundler gem vagrant coffee curl)
+plugins=(git osx brew ruby rails bundler gem vagrant coffee)
 
 export PATH="/usr/local/bin:$HOME/bin:$PATH"
 # Homebrew versions should supersede defaults set up in /etc/paths
 
-export EDITOR="subl -w"
+export EDITOR=vim
 
 source $ZSH/oh-my-zsh.sh
 
 # Not sure why oh-my-zsh rbenv wanted to init homebrew rbenv
 # even though I've done everything so far in ~/.rbenv
 # https://coderwall.com/p/j6cjnq
-eval "$(rbenv init - --no-rehash)"
+# --no-rehash is needed with more rubies. let it go for now
+# add zsh to be explicit about which shell we want
+eval "$(rbenv init - zsh)"
+
 
 # Aliases - where should these go?
 alias web='python -m SimpleHTTPServer'
 alias cleantab='crontab -l|grep -v "^#"|grep -v "^$"'
+
