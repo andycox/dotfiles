@@ -36,12 +36,34 @@ set display+=lastline
 " \ is the leader character
 let mapleader = ","
 
+" Make it obvious where 08 characters is
+set textwidth=80
+set colorcolumn=+1
+
 " Numbers
 set number
 
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
+
+" Buffer stuff
+set hidden
+nmap <leader>T :enew<cr>
+nmap <leader>l :bnext<cr>
+nmap <leader>h :bprevious<cr>
+nmap <leader>bq :bp <BAR> bd #<cr>
+nmap <leader>bl :ls<cr>
+
+" Open new split panes to the right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Easier split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " get our vundle on
 filetype off                 " required by vundle
@@ -61,11 +83,14 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mileszs/ack.vim'
 Plugin 'bitc/vim-bad-whitespace'
+Plugin 'tpope/vim-cucumber'
+Plugin 'kchmck/vim-coffee-script'
 
 " plugin configgy stuff
 " Airline
 let g:airline_enable_branch = 1 
 let g:airline_theme = 'solarized'
+let g:airline#extensions#tabline#enabled = 1
 
 " NERDtree
 let g:NERDTreeDirArrows=0
